@@ -1,0 +1,8 @@
+.name-form-control {
+  display: flex;
+  justify-content: space-between;
+
+  &__input {
+    width: 40%;
+  }
+}

@@ -1,0 +1,27 @@
+<form [formGroup]="form" class="duration-form-control">
+  <mat-form-field class="duration-form-control__form-field">
+    <input
+      matInput
+      class="duration-form-control__input"
+      placeholder="Start date"
+      [formControlName]="startDate"
+      (focus)="startDatePicker.open()"
+      [matDatepicker]="startDatePicker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker [startAt]="startDateStart"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="duration-form-control__form-field">
+    <input
+      matInput
+      class="duration-form-control__input"
+      placeholder="End date"
+      [formControlName]="endDate"
+      (focus)="endDatePicker.open()"
+      [matDatepicker]="endDatePicker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker [startAt]="endDateStart"></mat-datepicker>
+  </mat-form-field>
+</form>

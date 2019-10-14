@@ -1,0 +1,18 @@
+<form #form="ngForm" class="name-form-control">
+  <input
+    matInput
+    class="name-form-control__input"
+    placeholder="First name"
+    [(ngModel)]="firstName"
+    (ngModelChange)="valueChanged()"
+    [ngModelOptions]="{ standalone: true }"
+  />
+  <input
+    matInput
+    class="name-form-control__input"
+    placeholder="Last name"
+    [(ngModel)]="lastName"
+    (ngModelChange)="valueChanged()"
+    [ngModelOptions]="{ standalone: true }"
+  />
+</form>

@@ -59,16 +59,47 @@ describe('NameFormControlComponent', () => {
 
   describe('Template driven', () => {
     let fixture: ComponentFixture<TemplateTestComponent>;
+    let form: TemplateTestComponent;
     let formComponent: NameFormControlComponent;
 
     beforeEach(() => {
       fixture = TestBed.createComponent(TemplateTestComponent);
+      form = fixture.debugElement.children[0].componentInstance;
       formComponent = fixture.debugElement.children[0].children[0].componentInstance;
     });
 
     it('should exist', () => {
       fixture.detectChanges();
       expect(formComponent).toBeDefined();
+    });
+
+    describe('ngModel', () => {
+      it('sets the value via the parent form correctly', () => {
+        const name = { firstName: 'hello', lastName: 'world' };
+        form.nameModel = name;
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          expect(formComponent.firstName).toBe(name.firstName);
+          expect(formComponent.lastName).toBe(name.lastName);
+        });
+      });
+    });
+
+    describe('onChange', () => {
+      it('updates the parent form correctly', () => {
+        const name = { firstName: 'hello', lastName: 'world' };
+        form.nameModel = {};
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          formComponent.firstName = name.firstName;
+          formComponent.lastName = name.lastName;
+          formComponent.valueChanged();
+
+          expect(form.nameModel).toEqual(name);
+        });
+      });
     });
 
     describe('validate', () => {

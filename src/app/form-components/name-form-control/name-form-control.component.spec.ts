@@ -100,6 +100,19 @@ describe('NameFormControlComponent', () => {
           expect(form.nameModel).toEqual(name);
         });
       });
+
+      it('does not update the parent form when form control is invalid', () => {
+        const name = { firstName: 'hello', lastName: 'world' };
+        form.nameModel = {};
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+          formComponent.firstName = name.firstName;
+          formComponent.valueChanged();
+
+          expect(form.nameModel).toBeNull();
+        });
+      });
     });
 
     describe('validate', () => {

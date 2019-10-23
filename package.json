@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngrx/example-app.git"
+    "url": "git+https://github.com/koenwellens/custom-ng-forms.git"
   },
   "author": "Koen Wellens",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngrx/example-app/issues"
+    "url": "https://github.com/koenwellens/custom-ng-forms/issues"
   },
-  "homepage": "https://github.com/ngrx/example-app#readme",
+  "homepage": "https://github.com/koenwellens/custom-ng-forms#readme",
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
